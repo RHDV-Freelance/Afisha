@@ -1,0 +1,58 @@
+.root {
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  margin-top: 30px;
+
+  min-height: 80px;
+  background-color: #fff;
+}
+
+.headerTitle {
+  line-height: 3.5vh;
+  text-align: left;
+}
+
+.headerColumn {
+  display: flex;
+}
+
+.left {
+  display: grid;
+  gap: 15vw;
+  grid-template-columns: auto 160px;
+}
+
+.right {
+  display: grid;
+  gap: 2.5vw;
+  grid-template-columns: auto auto;
+  height: 45px;
+}
+
+.headerAfishaEmail {
+  cursor: pointer;
+  font-size: 14px;
+
+  transition: 0.2s all;
+  color: #969696;
+}
+
+.headerAfishaEmail:hover {
+  color: #000;
+}
+
+.plusButton {
+  margin-top: -25%;
+}
+
+@media screen and (max-width: 600px) {
+  .left {
+    display: flex;
+    gap: 0;
+    grid-template-columns: auto 100px;
+    flex-direction: column;
+  }
+}

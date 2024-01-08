@@ -1,0 +1,26 @@
+.root {
+  width: 6.9vw;
+  display: flex;
+  justify-content: space-between;
+
+  transition: width 0.3s ease-in-out;
+}
+
+.input {
+  font-family: "Suisse";
+  font-size: 15px;
+
+  display: none;
+  padding: 0;
+  transform: scale(0);
+  width: 80%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+
+  transition: 0.3s all ease-in-out;
+
+  &:focus {
+    outline: none;
+  }
+}

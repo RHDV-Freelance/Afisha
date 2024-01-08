@@ -1,0 +1,28 @@
+.monthCurrent {
+  &-enter {
+    opacity: 1;
+  }
+
+  &-enter-active {
+    opacity: 0.5;
+    transform: translateX(-110%);
+    transition: all 0.3s;
+  }
+
+  &-enter-done {
+    opacity: 0;
+  }
+}
+
+.monthUpcoming {
+  &-enter {
+  }
+
+  &-enter-active {
+    transform: translateX(-68vw);
+    transition: all 1s ease-in-out;
+  }
+
+  &-enter-done {
+  }
+}

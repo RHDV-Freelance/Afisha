@@ -1,0 +1,73 @@
+.root {
+  position: relative;
+  margin-bottom: 20px;
+  height: 60px;
+  display: flex;
+  gap: 5px;
+
+  white-space: nowrap;
+
+  font-family: "Suisse";
+  font-size: 15px;
+}
+
+.filters {
+  display: flex;
+  gap: 5px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  padding: 15px 25px;
+  border: 1px solid rgba(229, 229, 229, 1);
+  border-radius: 60px;
+  display: grid;
+  grid-template-columns: max-content;
+  justify-items: center;
+  align-items: center;
+
+  cursor: pointer;
+  transition: 0.35s all;
+
+  &__active {
+    padding: 15px 40px 15px 30px;
+    position: relative;
+    color: white;
+    background-color: #000;
+    grid-template-columns: max-content auto;
+    grid-gap: 10px;
+
+    &:after {
+      display: inline;
+      position: absolute;
+      right: 20px;
+      bottom: 15px;
+      content: url("../../assets/svg/filterCross.svg");
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15) inset;
+  }
+}
+
+.searchSection {
+  z-index: 5;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+
+  &:after {
+    content: '';
+    display: block;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 1px;
+    height: 50%;
+    align-self: center;
+  }
+}

@@ -1,0 +1,44 @@
+.root {
+  z-index: 100;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.monthsPrimary {
+  display: flex;
+  justify-content: space-between;
+  gap: 30vw;
+
+  font-family: "Afisha Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 7vw;
+  line-height: 118%;
+}
+
+.monthsSecondary {
+  display: flex;
+  justify-content: space-between;
+
+  font-family: "Afisha Display";
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0;
+}
+
+.monthsPassed {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  color: rgba(187, 187, 187, 1);
+}
+
+.monthsUpcoming {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  color: rgba(0, 0, 0, 1);
+}

@@ -1,58 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import styles from './app.module.scss';
+import placeholder from './assets/images/daily.png';
+import Header from "./widgets/header";
+import EventList from "./widgets/eventList";
+import Filters from "./widgets/filters";
+import {useAppDispatch} from "./app/hooks";
+import {fetchFeedData} from "./app/afishaSlice";
+import Loader from "./ui/loader";
+import MonthScroll from "./widgets/monthScroll";
+import {enableMapSet} from 'immer';
+enableMapSet();
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    const dispatch = useAppDispatch();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        dispatch(fetchFeedData()).then(() => setIsLoading(false));
+    }, [])
+
+    return (
+        <div className={styles.app}>
+            <Header />
+            {isLoading ? <Loader className={styles.spinner} /> :
+                <>
+                    <MonthScroll />
+                    <img src={placeholder} style={{marginBottom: '20px', width: '100%'}} />
+                    <Filters />
+                    <EventList />
+                </>
+            }
+        </div>
+    );
 }
 
 export default App;

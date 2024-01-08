@@ -1,0 +1,43 @@
+.root {
+  width: 20vw;
+  max-width: 250px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.img {
+  position: relative;
+  cursor: pointer;
+  width: 20vw;
+  max-width: 250px;
+  min-width: 200px;
+  height: calc(20vw * 0.57);
+  min-height: calc(200px * 0.57);
+  max-height: calc(250px * 0.57);
+  border-radius: 16px;
+
+  background-color: black;
+  background-position: center;
+  background-size: 100%;
+  transition: 0.3s all;
+
+  &:hover {
+    background-size: 120%;
+  }
+}
+
+.minPriceBubble {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+
+.dateAndPlace {
+  color: rgba(0, 0, 0, 0.4);
+}

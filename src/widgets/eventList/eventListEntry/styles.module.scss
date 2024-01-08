@@ -1,0 +1,122 @@
+.root {
+  position: relative;
+  display: grid;
+  grid-template-columns: 70px 70px 1.5fr 1fr 1.5fr 1fr;
+  grid-template-rows: 70px;
+  align-items: center;
+}
+
+.root::after {
+  content: '';
+  position: absolute;
+  margin: 0 auto;
+  top: 110%;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  opacity: 0.1;
+}
+
+.eventDates {
+  text-align: left;
+}
+
+.eventDescription {
+  cursor: default;
+  max-height: 50px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  text-align: left;
+}
+
+.eventFullDescription {
+  z-index: 1000;
+  cursor: default;
+  padding: 25px;
+  border-radius: 15px;
+  position: absolute;
+  width: 25vw;
+  top: 50%;
+
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.12);
+
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.15s all;
+}
+
+.eventDescription:hover > div {
+  visibility: visible;
+  opacity: 1;
+}
+
+.eventName {
+  font-size: 18px;
+  display: flex;
+  text-align: left;
+  cursor: pointer;
+  text-shadow: none;
+  transition: 0.2s all;
+
+  &:hover {
+    text-shadow: 0 0 5px #95FF00;
+  }
+}
+
+.eventCity {}
+.eventImg {
+  z-index: 10;
+}
+
+.eventType {
+  text-align: right;
+}
+
+.eventTypeText {
+  display: inline-block;
+  margin-right: 2px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.eventTypeText:hover {
+  color: rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 600px) {
+  .root {
+    grid-template-columns: minmax(85px, 1fr) 4fr;
+    grid-template-rows: unset;
+    grid-template-areas: "icon name" "icon type" "icon date";
+  }
+
+  .eventImg {
+    grid-area: icon;
+  }
+
+  .eventName {
+    grid-area: name;
+  }
+
+  .eventType {
+    text-align: left;
+    grid-area: type;
+  }
+
+  .eventDates {
+    grid-area: date;
+  }
+
+  .eventDescription {
+    display: none;
+  }
+
+  .eventCity {
+    display: none;
+  }
+}

@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -ms-overflow-style: none;
+}
+
+.app {
+  position: relative;
+  width: 98%;
+  margin: 0 auto;
+  text-align: center;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.spinner {
+  position: absolute;
+  margin: 0 auto;
+  width: 10vw;
+  height: 10vw;
+}
+
+.stickyPagePart {
+  position: sticky;
+  top: 0;
+}
+
+@font-face {
+  font-family: "Suisse";
+  src: url("./assets/fonts/SuisseIntl-Regular.otf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse";
+  src: url("./assets/fonts/SuisseIntl-Medium.otf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse";
+  src: url("./assets/fonts/SuisseIntl-Book.otf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse";
+  src: url("./assets/fonts/SuisseIntl-Bold.otf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Afisha Display";
+  src: url("./assets/fonts/AfishaDisplay-Headline.otf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

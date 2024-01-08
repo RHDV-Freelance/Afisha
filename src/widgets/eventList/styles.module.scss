@@ -1,0 +1,14 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+
+  font-family: "Suisse";
+}
+
+.eventCardLine {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}

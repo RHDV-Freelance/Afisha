@@ -1,0 +1,30 @@
+.root {
+  display: flex;
+  position: relative;
+}
+
+.img {
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  object-fit: cover;
+}
+
+.fullImg {
+  position: absolute;
+  left: 70px;
+  border-radius: 20px;
+  width: 450px;
+  height: 225px;
+  object-fit: cover;
+
+  transition: 0.2s all;
+}
+
+
+@media screen and (max-width: 600px) {
+  .img {
+    height: 70px;
+    width: 70px;
+  }
+}

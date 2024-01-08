@@ -1,0 +1,12 @@
+.root {
+  position: relative;
+  display: flex;
+}
+
+.citySelectPopup {
+  position: absolute;
+  
+  &.visible {
+
+  }
+}
