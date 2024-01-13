@@ -33,7 +33,7 @@
 }
 
 .eventFullDescription {
-  z-index: 1000;
+  z-index: 10;
   cursor: default;
   padding: 25px;
   border-radius: 15px;
@@ -56,6 +56,8 @@
 }
 
 .eventName {
+  max-height: 100%;
+  overflow: hidden;
   font-size: 18px;
   display: flex;
   text-align: left;
@@ -69,11 +71,11 @@
 }
 
 .eventCity {}
-.eventImg {
-  z-index: 10;
-}
+.eventImg {}
 
 .eventType {
+  max-height: 100%;
+  overflow: hidden;
   text-align: right;
 }
 

@@ -7,9 +7,11 @@ import {afishaEmail, headerText} from "../../constants/pageData";
 
 function Header() {
     const onAfishaEmailClick = () => {
+        window.location.href = "mailto:info@afisha.ru";
     }
 
     const onPlusButtonClick = () => {
+        window.location.href = "mailto:info@afisha.ru";
     }
 
     return (

@@ -11,6 +11,7 @@ type Props = {
 const EventIcon = ({src, className}: Props) => {
     const ref = useRef(null as unknown as HTMLImageElement);
     const [isHovering, setIsHovering] = useState(false);
+    const [isOnMobile, setIsOnMobile] = useState(window.innerWidth < 600);
     const toggleShowPicture = (e: React.MouseEvent, shouldShow: boolean) => {
         setIsHovering(shouldShow);
     }
@@ -22,7 +23,7 @@ const EventIcon = ({src, className}: Props) => {
             onMouseOut={(e) => toggleShowPicture(e, false)}
         >
             <img src={src} className={styles.img}/>
-            {isHovering && <img ref={ref} src={src} className={styles.fullImg}/>}
+            {isHovering && !isOnMobile && <img ref={ref} src={src} className={styles.fullImg}/>}
         </div>
     );
 }

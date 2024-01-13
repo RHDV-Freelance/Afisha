@@ -18,7 +18,7 @@ const EventCard = ({event}: Props) => {
         <div className={styles.root}>
             <div
                 className={styles.img}
-                onClick={() => navigate(url)}
+                onClick={() => window.location.href = url}
                 style={{backgroundImage: `url(${image})`}}
             >
                 {minPrice &&

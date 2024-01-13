@@ -45,4 +45,5 @@ export interface ApiState {
 
 export type AfishaState = {
     currentMonth: string,
+    currentCity: string,
 } & ApiState

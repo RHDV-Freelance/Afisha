@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import { useNavigate } from "react-router-dom";
 import styles from './styles.module.scss';
 import {CustomComponent, Event} from "../../../constants/types";
 import {maxMobileWidth} from "../../../constants/sizes";
@@ -16,7 +15,6 @@ type EventListEntryType = {
 
 const EventListEntry = ({event, id}: EventListEntryType) => {
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
     const {creation, dates, tags, city} = event;
     const {name, description, image, url} = creation;
     const [isOnMobile, setIsOnMobile] = useState(window.innerWidth < maxMobileWidth);
@@ -32,6 +30,8 @@ const EventListEntry = ({event, id}: EventListEntryType) => {
             data-month={
                 months2monthsMap.get(convertDatesToWords([dates[dates.length - 1]]).split(' ')[1])
             }
+            // @ts-ignore
+            style={{color: `${new Date(event.dates[0]) - Date.now() < 0 ? 'rgba(0, 0, 0, 0.3)': ''}`}}
         >
             <div className={styles.eventDates}>
                 {isOnMobile ?
@@ -40,7 +40,7 @@ const EventListEntry = ({event, id}: EventListEntryType) => {
                     dates.map((elem) => Number(elem.split('-')[2])).join('-')}
             </div>
             <EventIcon src={image} className={styles.eventImg}/>
-            <div className={styles.eventName} onClick={() => navigate(url)}>
+            <div className={styles.eventName} onClick={() => window.location.href = url}>
                 {name}
             </div>
             <div className={styles.eventCity}>

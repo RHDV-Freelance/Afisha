@@ -15,19 +15,37 @@ function App() {
     const dispatch = useAppDispatch();
     const [isLoading, setIsLoading] = useState(true);
 
+    const [scrollDirection, setScrollDirection] = useState(0);
+    const [scrollPosition, setScrollPosition] = useState(0);
+    let lastScroll: number | null = null;
+
+    useEffect(() => {
+        const handleScroll = (e: Event) => {
+            if (lastScroll === null) lastScroll = window.scrollY;
+            const currentScroll = window.scrollY || document.documentElement.scrollTop;
+            if (currentScroll > lastScroll) setScrollDirection(1);
+            else setScrollDirection(0);
+            setScrollPosition(currentScroll);
+            lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+    }, [])
+
     useEffect(() => {
         dispatch(fetchFeedData()).then(() => setIsLoading(false));
-    }, [])
+    }, []);
 
     return (
         <div className={styles.app}>
             <Header />
             {isLoading ? <Loader className={styles.spinner} /> :
                 <>
-                    <MonthScroll />
-                    <img src={placeholder} style={{marginBottom: '20px', width: '100%'}} />
+                    <MonthScroll scrollDir={scrollDirection as 0 | 1} scrollPos={scrollPosition} />
+                    <img src={placeholder} style={{marginBottom: '20px', minWidth: '100%', minHeight: '450px'}} />
                     <Filters />
-                    <EventList />
+                    <EventList scrollDirection={scrollDirection as 0 | 1} />
                 </>
             }
         </div>

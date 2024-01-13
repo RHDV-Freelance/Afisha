@@ -24,8 +24,8 @@ export const afishaSlice = createSlice({
             state.collections.tag.set(action.payload, !state.collections.tag.get(action.payload));
         },
         setCurrentMonth: (state, action: PayloadAction<string>) => {
+            if (state.currentMonth === action.payload) return;
             state.currentMonth = action.payload;
-            console.log(state.currentMonth, "<----");
         },
         getSearchResults: (state, action: PayloadAction<string>) => {
             state.collections.feed.events =
@@ -39,6 +39,7 @@ export const afishaSlice = createSlice({
             state.collections.feed.events =
                 feedCopy.events.filter(({city}) =>
                     city.toLowerCase().includes(action.payload.toLowerCase()));
+            state.currentCity = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -81,6 +82,7 @@ export const selectTags = (state: RootState) => state.afisha.collections.tag;
 export const selectEvents = (state: RootState) => state.afisha.collections.feed;
 export const selectMonths = (state: RootState) => state.afisha.collections.months;
 export const selectCities = (state: RootState) => state.afisha.collections.cities;
+export const selectCurrentCity = (state: RootState) => state.afisha.currentCity;
 export const selectCurrentMonth = (state: RootState) => state.afisha.currentMonth;
 
 export default afishaSlice.reducer;

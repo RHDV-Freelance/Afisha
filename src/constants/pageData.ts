@@ -25,5 +25,4 @@ export const months2monthsMap = new Map([
 export const numberToMonthMap = new Map(
     Array.from({ length: 12 }, (_, i) => [i + 1, months[i]])
 )
-// 70 - height, 30 - padding
-export const EVENT_ENTRY_SIZE = 70 + 30;
+export const animationTimeout = 500;

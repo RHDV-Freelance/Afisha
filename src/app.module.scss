@@ -5,6 +5,14 @@
   -ms-overflow-style: none;
 }
 
+body {
+  overflow-x: hidden;
+  min-height: 200vh;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .app {
   position: relative;
   width: 98%;

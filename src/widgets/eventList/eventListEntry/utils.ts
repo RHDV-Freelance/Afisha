@@ -17,6 +17,7 @@ export const convertDatesToWords: Func = (dates: constants.Date[]) => {
 }
 
 export const generateRandomNumbers = (from: number, to: number): number[] => {
+    console.log(1)
     let res = [];
     for (let a = Array.from({length: (to - from)}, (_, i) => i + from), i = a.length; i--; ) {
         res.push(a.splice(Math.floor(Math.random() * (i + 1)), 1)[0]);

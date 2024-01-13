@@ -1,5 +1,6 @@
 import {months, months2monthsMap, monthsNominative} from "../../constants/pageData";
 import * as constants from "../../constants/pageData";
+import React from "react";
 
 type secondaryUpdateFunc = {
     passed: (string | undefined)[],
@@ -30,4 +31,36 @@ export const updatePrimaryMonths = (currentMonth: string): primaryUpdateFunc => 
                 constants.months[constants.monthsNominative.indexOf(currentMonth) + i + 1]
             )),
     }
+}
+
+type BoundsArgs = {
+    currentRef: React.MutableRefObject<HTMLDivElement>,
+    upcomingRef: React.MutableRefObject<HTMLDivElement>
+}
+type BoundsFunc = (
+    current: BoundsArgs['currentRef'],
+    upcoming: BoundsArgs['upcomingRef'],
+) => boolean;
+export const isInBounds: BoundsFunc = (
+    currentRef,
+    upcomingRef
+) => {
+    if (!currentRef.current || !upcomingRef.current)
+        return false;
+    const {x, width} = currentRef.current.getBoundingClientRect();
+    return (x + width) <
+        (upcomingRef.current.getBoundingClientRect().x + upcomingRef.current.getBoundingClientRect().width);
+}
+
+type MaxBoundsFunc = (
+    current: BoundsArgs['currentRef'],
+    upcoming: BoundsArgs['upcomingRef'],
+) => number;
+export const getMaxBounds: MaxBoundsFunc = (
+    primary, upcoming
+) => {
+    if (!primary.current || !upcoming.current)
+        return 0;
+    const {x, width} = primary.current.getBoundingClientRect();
+    return x + width - window.innerWidth + upcoming.current.getBoundingClientRect().width;
 }

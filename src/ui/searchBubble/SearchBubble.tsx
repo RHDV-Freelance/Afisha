@@ -36,7 +36,6 @@ const SearchBubble = ({className}: CustomComponent) => {
         }, [searchQuery], 300
     );
 
-
     useEffect(() => {
         window.addEventListener('click', (e) => {
             if (e.target !== glassRef.current)

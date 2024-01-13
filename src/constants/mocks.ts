@@ -25,4 +25,5 @@ export const initialApiStateMock = {
     },
     status: <'idle' | 'loading' | 'failed'>'idle',
     currentMonth: '',
+    currentCity: '',
 }

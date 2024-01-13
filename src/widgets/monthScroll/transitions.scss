@@ -1,28 +1,140 @@
-.monthCurrent {
-  &-enter {
-    opacity: 1;
+.month {
+  &Current {
+    position: absolute;
+    left: 0;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    &Reverse {
+
+    }
+
+    &Anim {
+      position: absolute;
+      opacity: 0;
+      left: 0;
+    }
+
+    &-enter {
+      opacity: 1;
+
+      &-active {
+        opacity: 0.5;
+        left: -100%;
+        transition: left 0.5s;
+      }
+
+      &-done {
+        opacity: 0;
+      }
+    }
   }
 
-  &-enter-active {
-    opacity: 0.5;
-    transform: translateX(-110%);
-    transition: all 0.3s;
-  }
+  &Upcoming {
+    transform-origin: 0%;
+    position: absolute;
+    display: none;
+    right: 2%;
 
-  &-enter-done {
-    opacity: 0;
+    &.active {
+      display: block;
+    }
+
+    &Anim {
+      position: absolute;
+      right: 0;
+      left: 110%;
+    }
+
+    &-enter {
+      &-active {
+        left: -69%;
+        transition: left 0.5s ease-in-out;
+      }
+    }
   }
 }
 
-.monthUpcoming {
-  &-enter {
+.secondary {
+  &Passed {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+
+    &Reverse {
+      position: absolute;
+      left: 0;
+      opacity: 1;
+
+      &Anim {
+        position: absolute;
+        left: 0;
+      }
+
+      &-enter {
+        &-active {
+          opacity: 0;
+          left: 20%;
+          transition: left 0.5s ease-in-out, opacity 0.5s linear;
+        }
+      }
+    }
+
+    &Anim {
+      position: absolute;
+      opacity: 0;
+      left: -100%;
+    }
+
+    &-enter {
+      &-active {
+        opacity: 1;
+        left: 0;
+        transition: left 0.5s ease-in-out, opacity 0.5s linear;
+      }
+    }
   }
 
-  &-enter-active {
-    transform: translateX(-68vw);
-    transition: all 1s ease-in-out;
-  }
+  &Upcoming {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
 
-  &-enter-done {
+    &Reverse {
+      position: absolute;
+      right: 20%;
+      opacity: 0;
+
+      &Anim {
+        position: absolute;
+        opacity: 0;
+        right: 40%;
+      }
+
+      &-enter {
+        &-active {
+          opacity: 1;
+          right: 0;
+          transition: right 0.5s ease-in-out, opacity 0.5s linear;
+        }
+      }
+    }
+
+    &Anim {
+      position: absolute;
+      opacity: 1;
+      right: 2%;
+    }
+
+    &-enter {
+      &-active {
+        opacity: 0;
+        right: -30%;
+        transition: right 0.5s ease-in-out, opacity 0.5s linear;
+      }
+    }
   }
 }
